@@ -8,7 +8,7 @@ const Login = () => {
                 <div className='mb-8 text-center'>
                     <h1 className='my-3 text-4xl font-bold'>Log In</h1>
                     <p className='text-sm text-gray-400'>
-                        Sign in to access your account
+                    We're glad to see you again!
                     </p>
                 </div>
                 <form
@@ -27,7 +27,7 @@ const Login = () => {
                                 id='email'
                                 required
                                 placeholder='Enter Your Email Here'
-                                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-pink-500 bg-gray-200 text-gray-900'
+                                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#5bbb7b] bg-gray-200 text-gray-900'
                                 data-temp-mail-org='0'
                             />
                         </div>
@@ -44,7 +44,7 @@ const Login = () => {
                                 id='password'
                                 required
                                 placeholder='*******'
-                                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-pink-500 bg-gray-200 text-gray-900'
+                                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#5bbb7b] bg-gray-200 text-gray-900'
                             />
                         </div>
                     </div>
@@ -52,14 +52,14 @@ const Login = () => {
                     <div>
                         <button
                             type='submit'
-                            className='bg-pink-500 w-full rounded-md py-3 text-white font-semibold'
+                            className='bg-[#5bbb7b] w-full rounded-md py-3 text-white font-semibold'
                         >
                             Login
                         </button>
                     </div>
                 </form>
                 <div className='space-y-1'>
-                    <button className='text-xs hover:underline hover:text-pink-500 text-gray-400'>
+                    <button className='text-xs hover:underline hover:text-[#5bbb7b] text-gray-400'>
                         Forgot password?
                     </button>
                 </div>
@@ -79,7 +79,7 @@ const Login = () => {
                     Don&apos;t have an account yet?{' '}
                     <Link
                         to='/Register'
-                        className='hover:underline hover:text-pink-500 text-gray-600'
+                        className='hover:underline hover:text-[#5bbb7b] text-gray-600'
                     >
                         Sign up
                     </Link>

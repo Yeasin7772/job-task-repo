@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc'
 const Register = () => {
     return (
-        <div className='flex justify-center items-center min-h-screen'>
+        <div className='flex justify-center items-center min-h-screen '>
         <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
           <div className='mb-8 text-center'>
-            <h1 className='my-3 text-4xl font-bold'>Sign Up</h1>
-            <p className='text-sm text-gray-400'>Welcome to StayVista</p>
+            <h1 className='my-3 text-4xl font-bold'>Register</h1>
+            <p className='text-sm text-gray-400'>Let's create your account!</p>
           </div>
           <form
             noValidate=''
@@ -16,14 +16,14 @@ const Register = () => {
             <div className='space-y-4'>
               <div>
                 <label htmlFor='email' className='block mb-2 text-sm'>
-                  Name
+                Display Name
                 </label>
                 <input
                   type='text'
                   name='name'
                   id='name'
                   placeholder='Enter Your Name Here'
-                  className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-pink-500 bg-gray-200 text-gray-900'
+                  className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#5bbb7b] bg-gray-200 text-gray-900'
                   data-temp-mail-org='0'
                 />
               </div>
@@ -49,7 +49,7 @@ const Register = () => {
                   id='email'
                   required
                   placeholder='Enter Your Email Here'
-                  className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-pink-500 bg-gray-200 text-gray-900'
+                  className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#5bbb7b] bg-gray-200 text-gray-900'
                   data-temp-mail-org='0'
                 />
               </div>
@@ -66,7 +66,7 @@ const Register = () => {
                   id='password'
                   required
                   placeholder='*******'
-                  className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-pink-500 bg-gray-200 text-gray-900'
+                  className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#5bbb7b] bg-gray-200 text-gray-900'
                 />
               </div>
             </div>
@@ -74,9 +74,9 @@ const Register = () => {
             <div>
               <button
                 type='submit'
-                className='bg-pink-500 w-full rounded-md py-3 text-white font-semibold'
-              >
-                Join Now
+                className='bg-[#5bbb7b] hover:bg-[#198754]  w-full rounded-md py-3 text-white font-semibold'
+              > 
+               Create Account
               </button>
             </div>
           </form>
@@ -96,7 +96,7 @@ const Register = () => {
             Already have an account?{' '}
             <Link
               to='/Login'
-              className='hover:underline hover:text-pink-500 text-gray-600'
+              className='hover:underline hover:text-[#5bbb7b] text-gray-600'
             >
               Login
             </Link>
