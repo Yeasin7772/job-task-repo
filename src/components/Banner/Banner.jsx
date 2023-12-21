@@ -3,6 +3,7 @@ import image from '../../assets/slider2.png'
 import bgImage from '../../assets/bg-image.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css';
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     useEffect(() => {
@@ -32,20 +33,12 @@ const Banner = () => {
                     Work with talented people at the most affordable price to get the most
                     out of your time and cost
                 </p>
-                <form className="footer-form">
-                    <fieldset className="form-control w-full">
-                        <label className="label">
-                        </label>
-                        <div className="join flex">
-                            <input
-                                type="text"
-                                placeholder="What are you looking for"
-                                className="input input-bordered join-item lg:w-80 w-full"
-                            />
-                            <button className="btn  join-item">Search</button>
-                        </div>
-                    </fieldset>
-                </form>
+                <div className="text-white font-bold">
+               <Link to='/Login'>
+               <button className="btn btn-outline w-36 ">Let’s Explore”</button>
+               </Link>
+               
+                </div>
             </div>
             <div className="lg:w-1/2">
                 <img

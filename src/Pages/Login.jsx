@@ -1,7 +1,39 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc'
+import useAuth from '../hooks/useAuth'
+import { useState } from 'react'
+import toast from 'react-hot-toast'
 
 const Login = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const { googleLogin, logIn } = useAuth()
+    const navigate = useNavigate()
+
+    const location = useLocation()
+    console.log('use location', location);
+
+    const handelGoogle = () => {
+        googleLogin()
+        navigate(location?.state ? location.state : '/')
+    } 
+    const handelLogin = (e) => {
+        e.preventDefault()
+        logIn(email, password)
+            .then(result => {
+                console.log(result.user);
+                navigate(location?.state ? location.state : '/')
+                toast.success('Login Successful')
+            })
+            .catch(error => {
+                console.error(error);
+                toast.error(error?.message)
+            })
+
+
+    }
+
+    
     return (
         <div className='flex justify-center items-center min-h-screen'>
             <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
@@ -11,7 +43,7 @@ const Login = () => {
                     We're glad to see you again!
                     </p>
                 </div>
-                <form
+                <form onSubmit={handelLogin}
                     noValidate=''
                     action=''
                     className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -21,7 +53,7 @@ const Login = () => {
                             <label htmlFor='email' className='block mb-2 text-sm'>
                                 Email address
                             </label>
-                            <input
+                            <input  onBlur={(e) => setEmail(e.target.value)}
                                 type='email'
                                 name='email'
                                 id='email'
@@ -37,7 +69,7 @@ const Login = () => {
                                     Password
                                 </label>
                             </div>
-                            <input
+                            <input onBlur={(e) => setPassword(e.target.value)}
                                 type='password'
                                 name='password'
                                 autoComplete='current-password'
