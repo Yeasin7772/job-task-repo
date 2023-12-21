@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc'
+import { AiFillGithub } from 'react-icons/ai'
 import useAuth from '../hooks/useAuth'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
@@ -7,7 +8,7 @@ import toast from 'react-hot-toast'
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const { googleLogin, logIn } = useAuth()
+    const { googleLogin, logIn, gitHubLogin } = useAuth()
     const navigate = useNavigate()
 
     const location = useLocation()
@@ -16,7 +17,11 @@ const Login = () => {
     const handelGoogle = () => {
         googleLogin()
         navigate(location?.state ? location.state : '/dashboard/userHome')
-    } 
+    }
+    const handelGitHub = () => {
+        gitHubLogin()
+        navigate(location?.state ? location.state : '/dashboard/userHome')
+    }
     const handelLogin = (e) => {
         e.preventDefault()
         logIn(email, password)
@@ -33,14 +38,14 @@ const Login = () => {
 
     }
 
-    
+
     return (
         <div className='flex justify-center items-center min-h-screen'>
             <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
                 <div className='mb-8 text-center'>
                     <h1 className='my-3 text-4xl font-bold'>Log In</h1>
                     <p className='text-sm text-gray-400'>
-                    We're glad to see you again!
+                        We're glad to see you again!
                     </p>
                 </div>
                 <form onSubmit={handelLogin}
@@ -53,7 +58,7 @@ const Login = () => {
                             <label htmlFor='email' className='block mb-2 text-sm'>
                                 Email address
                             </label>
-                            <input  onBlur={(e) => setEmail(e.target.value)}
+                            <input onBlur={(e) => setEmail(e.target.value)}
                                 type='email'
                                 name='email'
                                 id='email'
@@ -106,6 +111,11 @@ const Login = () => {
                     <FcGoogle size={32} />
 
                     <p>Continue with Google</p>
+                </div>
+                <div onClick={handelGitHub} className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
+                    <AiFillGithub size={32} />
+
+                    <p>Continue with GitHub</p>
                 </div>
                 <p className='px-6 text-sm text-center text-gray-400'>
                     Don&apos;t have an account yet?{' '}

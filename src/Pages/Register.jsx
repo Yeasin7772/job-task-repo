@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc'
+import { AiFillGithub } from 'react-icons/ai'
 import { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
@@ -143,6 +144,11 @@ const Register = () => {
                     <FcGoogle size={32} />
 
                     <p>Continue with Google</p>
+                </div>
+                <div onClick={handelGoogle} className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
+                    <AiFillGithub size={32} />
+
+                    <p>Continue with GitHub</p>
                 </div>
                 <p className='px-6 text-sm text-center text-gray-400'>
                     Already have an account?{' '}

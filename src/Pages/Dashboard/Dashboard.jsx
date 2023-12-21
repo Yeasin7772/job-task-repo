@@ -23,7 +23,7 @@ const Dashboard = () => {
         <div className="flex flex-col lg:flex-row min-h-screen bg-gray-100 glass">
             {/* Sidebar */}
             <div className="w-full lg:w-64 bg-gray-300  overflow-y-auto ">
-                <div className="flex justify-center items-center avatar p-4">
+                <div  data-aos="fade-right" className="flex justify-center items-center avatar p-4">
                     <div className="w-24 lg:w-28 rounded-full  border-2 border-pink-400">
                         <img src={user?.photoURL} alt="" />
                     </div>
@@ -45,18 +45,18 @@ const Dashboard = () => {
                     </li>
                     <li>
                         <NavLink
-                            to="/dashboard/userHome"
+                            to="/dashboard/AddTasks"
                             className="flex items-center text-lg p-3 lg:p-4"
                         >
-                            <FaHome className="mr-2" /> Add tasks
+                            <FaHome className="mr-2" /> Add Tasks
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
-                            to="/dashboard/userHome"
+                            to="/dashboard/TaskManage"
                             className="flex items-center text-lg p-3 lg:p-4"
                         >
-                            <FaHome className="mr-2" /> Previous tasks
+                            <FaHome className="mr-2" /> Task Manage
                         </NavLink>
                     </li>
                     <li>
