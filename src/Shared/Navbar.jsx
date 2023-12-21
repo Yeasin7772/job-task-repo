@@ -21,8 +21,13 @@ const Navbar = () => {
         <li> <Link to='/'>Home</Link></li>
         <li> <Link to='/'>About</Link></li>
         <li> <Link to='/'>Contact</Link></li>
-        <li> <Link to='/Login'>Login</Link></li>
-        <li> <Link to='/Register'>Register</Link></li>
+      
+
+        {
+            user &&
+            <li className='text-xl font-medium'> <Link to='/dashboard/userHome'>Dashboard</Link></li>
+        }
+
     </>
 
 

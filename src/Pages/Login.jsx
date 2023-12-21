@@ -15,14 +15,14 @@ const Login = () => {
 
     const handelGoogle = () => {
         googleLogin()
-        navigate(location?.state ? location.state : '/')
+        navigate(location?.state ? location.state : '/dashboard/userHome')
     } 
     const handelLogin = (e) => {
         e.preventDefault()
         logIn(email, password)
             .then(result => {
                 console.log(result.user);
-                navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/dashboard/userHome')
                 toast.success('Login Successful')
             })
             .catch(error => {
