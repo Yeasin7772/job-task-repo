@@ -1,29 +1,60 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc'
 import { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import toast from 'react-hot-toast';
 const Register = () => {
 
+    const [registerError, setRegisterError] = useState('')
+    const [registerSuccess, setRegisterSuccess] = useState('')
+
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [photo, setPhoto] = useState('')
     console.log(name, email, password, photo);
-    const { createUser,handleProfile } = useAuth()
+    const { createUser, handleProfile, googleLogin } = useAuth()
+
+    const navigate = useNavigate()
+
+    const location = useLocation()
+    console.log('use location', location);
+    const handelGoogle = () => {
+        googleLogin()
+        navigate(location?.state ? location.state : '/dashboard/userHome')
+    }
 
     const handelRegister = (e) => {
         e.preventDefault()
+        
+        // password verify
+        setRegisterError('')
+        setRegisterSuccess('')
+        if (password.length < 6) {
+            setRegisterError('Password is less than 6 characters')
+            toast.error('Password is less than 6 characters')
+
+        } else if (!/[A-Z]/.test(password)) {
+            setRegisterError('Provide capital characters.')
+            toast.error('Provide special capital characters')
+            return
+        } else if (!/[@#$%^&+=!]/.test(password)) {
+            toast.error('provide a contain special character')
+            return
+        }
+
         // sign up users 
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
                 handleProfile(name, photo)
+                navigate(location?.state ? location.state : '/dashboard/userHome')
                 toast.success('Signup Successful')
             })
             .catch(error => {
                 toast.error(error?.message)
                 console.log(error);
+                setRegisterError(error.messages)
             })
 
     }
@@ -108,7 +139,7 @@ const Register = () => {
                     </p>
                     <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
                 </div>
-                <div className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
+                <div onClick={handelGoogle} className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
                     <FcGoogle size={32} />
 
                     <p>Continue with Google</p>
