@@ -8,6 +8,8 @@ import PrivateRoutes from "./PrivateRoutes";
 import UserHome from "../Pages/Dashboard/UserHome";
 import AddTask from "../Pages/Dashboard/AddTask/AddTask";
 import TaskManager from "../Pages/Dashboard/TaskManager";
+import AllTask from "../Pages/Dashboard/AddTask/AllTask";
+import Update from "../Pages/Dashboard/Update/Update";
 
 const Routes = createBrowserRouter([
     {
@@ -26,6 +28,11 @@ const Routes = createBrowserRouter([
                 path: '/Register',
                 element: <Register/>
             },
+              {
+                path: '/update/:id',
+                element: <PrivateRoutes><Update/></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://job-task-server-tau.vercel.app/job/${params.id}`)
+            },
         ]
     },
     {
@@ -43,6 +50,10 @@ const Routes = createBrowserRouter([
             {
                 path:'TaskManage',
                 element:<TaskManager/>
+            },
+            {
+                path:'AllTaskManage',
+                element:<AllTask/>
             },
         ]
     }

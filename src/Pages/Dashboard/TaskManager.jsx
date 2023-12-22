@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { useTable } from 'react-table';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -32,7 +32,7 @@ const TaskManager = () => {
     return (
         <DndProvider backend={HTML5Backend}>
             <div className="min-h-screen flex  justify-center bg-gray-100">
-                <div className="bg-white p-8 rounded-md  w-full md:w-5/6">
+                <div className="bg-white p-8 rounded-md  w-full md:w-full">
                     <div className="mt-8">
                         <h2 className="text-2xl font-semibold mb-4 text-center">Task Management</h2>
 
